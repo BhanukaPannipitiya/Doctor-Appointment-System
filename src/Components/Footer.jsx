@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="page-footer fixed-bottom bg-dark text-light py-2">
             <div className="container-fluid">
-                <p className="text-center">Copyright &copy; HelloDoctor.com</p>
+                <p className="text-center">This is my footer</p>
             </div>
         </footer>
     )
