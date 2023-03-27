@@ -1,4 +1,5 @@
 import {BrowserRouter as Router,Route,Switch} from 'react-router';
+import AddNewDoctors from './Components/AddNewDoctors';
 import AppointmentHistory from './Components/AppointmentHistory';
 import AppointmentSlots from './Components/AppointmentSlots';
 import BookAppointment from './Components/BookAppointment';
@@ -14,7 +15,7 @@ import SpecializationList from './Components/SpecializationList';
 function App() {
   return (
     <div>
-      <ScheduleAppointment/> 
+      <AddNewDoctors/> 
     </div>
      
     
