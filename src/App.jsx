@@ -15,7 +15,7 @@ import SpecializationList from './Components/SpecializationList';
 function App() {
   return (
     <div>
-      <AddNewDoctors/> 
+      <AddNewDoctors/>
     </div>
      
     
