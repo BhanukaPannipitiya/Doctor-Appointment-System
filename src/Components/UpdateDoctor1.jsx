@@ -4,7 +4,7 @@ import {Link, useHistory, useParams } from 'react-router-dom';
 import AppointmentService from '../Service/AppointmentService';
 import DocService from '../Service/DocService';
 
-const ScheduleAppointment = () => {
+const UpdateDoctor1 = () => {
 
     const[firstName,setFirstName] = useState("");
     const[lastName,setLastName] = useState("");
@@ -227,4 +227,4 @@ const ScheduleAppointment = () => {
     )
 }
 
-export default ScheduleAppointment
+export default UpdateDoctor1

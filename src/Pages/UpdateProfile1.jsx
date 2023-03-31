@@ -1,17 +1,16 @@
 import React from 'react'
-import BookAppointment from '../Components/BookAppointment'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
+import UpdatePatientProfile from '../Components/UpdateProfile'
 
-function MakeAppointment() {
+function UpdateProfile1() {
   return (
     <div>
         <Header/>
-        <BookAppointment/>
+        <UpdatePatientProfile/>
         <Footer/>
     </div>
-    
   )
 }
 
-export default MakeAppointment
+export default UpdateProfile1

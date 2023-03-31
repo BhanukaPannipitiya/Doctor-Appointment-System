@@ -3,7 +3,7 @@ import React from 'react'
 function AppointmentHistory() {
   return (
     <div className="container my-4">
-                    <button className="btn btn-secondary offset-11" >Go Back</button>
+                    <button className="btn btn-secondary offset-11" onClick={() => {window.location.href="/A"}}>Go Back</button>
                     
                         //this.state.appointments.length === 0 ? <h3>You have no appointment history</h3> :
                             <div>

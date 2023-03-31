@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import DocService from '../Service/DocService';
 
 
-class DoctorListForPatient extends Component {
+class UpdateDoctor2 extends Component {
+    
 
     constructor(props) {
         super(props)
@@ -45,46 +46,35 @@ class DoctorListForPatient extends Component {
 
     render() {
         
+        
         return (
             <>
                 <div className="container my-4">
-                <button className="btn btn-secondary offset-11"onClick={() => {window.location.href="/A"}}>Go Back</button>
+                <button className="btn btn-secondary offset-11"onClick={() => {window.location.href="/AdminDashboard"}}>Go Back</button>
                     <h2 className="text-muted">Doctor List</h2>
                     <table className="table table-bordered">
                         <thead className="bg-dark text-light">
                             <tr>
-                                <th className="visually-hidden">Id</th>
+                                <th>Id</th>
                                 <th>Name</th>
                                 <th>specialty</th>
                                 <th>Consultation Fee</th>
                                 <th>Action</th>
-                                <th>Action1</th>
                             </tr>
-                            
                         </thead>
                         <tbody>
-                  
                             {
                                 this.state.doctors.map(
                                     doctor =>
                                         <tr key={doctor.id}>
-                                            <td className="visually-hidden">{doctor.id}</td>
+                                            <td>{doctor.id}</td>
                                             <td>{`${'Dr. ' + doctor.firstName + ' ' + doctor.lastName}`}</td>
                                             <td>{doctor.specialty}</td>
                                             <td>{doctor.consultantFee}</td>
                                             <td>
-                                                <NavLink to={{
-                                                    pathname:"/bookAppointment/${doctor.id}",
-                                                    state: {
-                                                        doctor: doctor
-                                                    }
-                                                }} className="btn btn-outline-primary">Book Appointment</NavLink>
-                                            </td>
-                                            <td>
-                                                <button className="btn btn-info" to={`/bookAppointment/${doctor.id}`}></button>
+                                            <Link className = "btn btn-success"  to={`/UpdateDoctor1page/${doctor.id}`} > Create</Link>
                                             </td>
                                         </tr>
-                                        
                                 )
                             }
                         </tbody>
@@ -97,5 +87,4 @@ class DoctorListForPatient extends Component {
 
 
 }
-export default DoctorListForPatient
-
+export default UpdateDoctor2;

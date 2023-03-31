@@ -4,31 +4,28 @@ import {Link, useHistory, useParams } from 'react-router-dom';
 import AppointmentService from '../Service/AppointmentService';
 import DocService from '../Service/DocService';
 
-const ScheduleAppointment = () => {
+const UpdateDoctorComponent = () => {
 
     const[firstName,setFirstName] = useState("");
     const[lastName,setLastName] = useState("");
     const[specialty,setSpecialty] = useState("");
     const[consultantFee,setConsultantFee] = useState("");
-    const[startDate,setStartDate] = useState("");
-    const[endDate,setEndDate] = useState("");
-    const[startTime,setStartTime] = useState("");
-    const[endTime,setEndTime] = useState("");
-    const[noOfSlots,setNoOfSlots] = useState("");
-    const doctorName=firstName;
-    const fee=consultantFee;
-    const specialization=specialty;
-
+    const[phoneNumber,setPhoneNumber] = useState("");
+    const[email,setEmail] = useState("");
+    const[gender,setGender] = useState("");
     const{id}=useParams();
+    const history = useHistory();
 
 
-  const createAppointment = (e) => {
+  const updatedoctor = (e) => {
         e.preventDefault();
 
-        const appointment = {id,firstName,specialization,fee,startDate,endDate,startTime,endTime,noOfSlots}
+        const doctor = {firstName,lastName,specialty,consultantFee,phoneNumber,email,gender}
 
        
-             AppointmentService.postScheduleAppointment(appointment).then((response) =>{
+             DocService.updateDoctor(id,doctor).then((response) =>{
+
+                history.push('/A');
 
                  console.log(response.data);
     
@@ -59,7 +56,10 @@ const ScheduleAppointment = () => {
             setFirstName(appointment.firstName);
             setLastName(appointment.lastName);
             setSpecialty(appointment.specialty);
-            setConsultantFee(appointment.consultantFee)
+            setConsultantFee(appointment.consultantFee);
+            setPhoneNumber(appointment.phoneNumber);
+            setGender(appointment.gender);
+            setEmail(appointment.email);
             
         }).catch(error => {
             console.log(error)
@@ -87,18 +87,7 @@ const ScheduleAppointment = () => {
                      <div className = "card-body">
                          <form className='overflow-auto'>
                             
-                            <div className = "form-group mb-2">
-                                 <label className = "form-label"> Doctor Id :</label>
-                                 <input
-                                     type = "text"
-                                     placeholder = "Doc Id"
-                                     name = "id"
-                                     className = "form-control"
-                                     value = {id}
-                                     
-                                 >
-                                 </input>
-                             </div>
+                          
                              <div className = "form-group mb-2">
                                  <label className = "form-label"> First Name :</label>
                                  <input
@@ -153,67 +142,44 @@ const ScheduleAppointment = () => {
 
                          
                              <div className = "form-group mb-2">
-                                 <label className = "form-label"> Start Date :</label>
+                                 <label className = "form-label"> Phone Number :</label>
                                  <input
-                                     type = "startDate"
-                                     placeholder = "Enter start date"
-                                     name = "startDate"
+                                     type = "setPhoneNumber"
+                                     placeholder = "Phone Number"
+                                     name = "setPhoneNumber"
                                      className = "form-control"
-                                     value = {startDate}
-                                        onChange = {(e) => setStartDate(e.target.value)}
+                                     value = {phoneNumber}
+                                        onChange = {(e) => setPhoneNumber(e.target.value)}
                                  >
                                  </input>
                              </div>
                              <div className = "form-group mb-2">
-                                 <label className = "form-label"> End Date :</label>
+                                 <label className = "form-label"> Gender:</label>
                                  <input
-                                     type = "endDate"
-                                     placeholder = "Enter end date"
-                                     name = "endDate"
+                                     type = "gender"
+                                     placeholder = "Your Gender"
+                                     name = "gender"
                                      className = "form-control"
-                                     value = {endDate}
-                                        onChange = {(e) => setEndDate(e.target.value)}
+                                     value = {gender}
+                                        onChange = {(e) => setGender(e.target.value)}
                                  >
                                  </input>
                              </div>
                              <div className = "form-group mb-2">
-                                 <label className = "form-label"> Start Time :</label>
+                                 <label className = "form-label"> Email :</label>
                                  <input
-                                     type = "startTime"
-                                     placeholder = "Enter starting time"
-                                     name = "startTime"
+                                     type = "email"
+                                     placeholder = "Email"
+                                     name = "email"
                                      className = "form-control"
-                                     value = {startTime}
-                                        onChange = {(e) => setStartTime(e.target.value)}
+                                     value = {email}
+                                        onChange = {(e) => setEmail(e.target.value)}
                                  >
                                  </input>
                              </div>
-                             <div className = "form-group mb-2">
-                                 <label className = "form-label"> End Time :</label>
-                                 <input
-                                     type = "endTime"
-                                     placeholder = "Enter ending time"
-                                     name = "endTime"
-                                     className = "form-control"
-                                     value = {endTime}
-                                        onChange = {(e) => setEndTime(e.target.value)}
-                                 >
-                                 </input>
-                             </div>
-                             <div className = "form-group mb-2">
-                                 <label className = "form-label"> No of slots :</label>
-                                 <input
-                                     type = "noOfSlots"
-                                     placeholder = "Enter No of slots"
-                                     name = "noOfSlots"
-                                     className = "form-control"
-                                     value = {noOfSlots}
-                                        onChange = {(e) => setNoOfSlots(e.target.value)}
-                                 >
-                                 </input>
-                             </div>
+                            
 
-                             <button className = "btn btn-success" onClick = {(e) => createAppointment(e)} >Confirm</button>
+                             <button className = "btn btn-success" onClick = {(e) => updatedoctor(e)} >Update</button>
                              <Link to="/A" className="btn btn-danger"> Cancel </Link>
                          </form>
 
@@ -227,4 +193,4 @@ const ScheduleAppointment = () => {
     )
 }
 
-export default ScheduleAppointment
+export default UpdateDoctorComponent

@@ -1,23 +1,71 @@
-import {BrowserRouter as Router,Route,Switch} from 'react-router';
-import AddNewDoctors from './Components/AddNewDoctors';
-import AppointmentHistory from './Components/AppointmentHistory';
-import AppointmentSlots from './Components/AppointmentSlots';
-import BookAppointment from './Components/BookAppointment';
-import DoctorDashboard from './Components/DoctorDashboard';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+
 import DoctorListForPatient from './Components/DoctorListForPatient';
-import Footer from './Components/Footer';
-import Header from './Components/Header';
-import PatientDashboard from './Components/PatientDashboard';
+
+import PatientHomePage from './Pages/PatientHomePage'
+
+import CurrentAppointment from './Pages/CurrentAppointment';
+import HistoryAppointment from './Pages/HistoryAppointment';
+import UpdateProfile1 from './Pages/UpdateProfile1';
+import AdminDashboard1 from './Pages/AdminDashboard1';
+
+import DoctorCurrentAppointments1 from './Pages/DoctorCurrentAppointments1';
+
+import PatientSignUp from './Pages/Register';
+import Login from './Pages/Login';
+import DoctorListForAdmin1 from './Pages/DoctorListForAdmin1';
+import CreateAppointmentAdmin from './Pages/CreateAppointmentAdmin';
+import BookAppointment from './Components/BookAppointment';
 import ScheduleAppointment from './Components/ScheduleAppointment';
-import ShowCurrentAppointments from './Components/ShowCurrentAppointments';
-import SpecializationList from './Components/SpecializationList';
+import AvailableDocPg from './Pages/AvailableDocPg';
+
+import ConfirmAppointment2 from './Components/ConfirmAppointment2';
+import ShowCurrentAppointments from './Pages/ShowCurrentAppointments';
+import CurrentActiveAppointments from './Pages/CurrentActiveAppointments';
+import AddDoctors1 from './Pages/AddDoctors1';
+import UpdateDoctor1page from './Pages/UpdateDoctor1page';
+import UpdateDoctorPage2 from './Pages/UpdateDoctorPage2';
+
+
+
 
 function App() {
   return (
     <div>
-      <AddNewDoctors/>
+   <Router>
+   <div>
+      <Switch>CurrentAppointment
+        <Route path="/A" component={PatientHomePage}/>
+        <Route path="/CurrentAppointment1" component={CurrentAppointment}/>
+        <Route path="/HistoryAppointment1" component={HistoryAppointment}/>
+        <Route path="/UpdateProfile1" component={UpdateProfile1}/>
+        <Route exact path="/" component={PatientSignUp}/>
+        <Route path="/DoctorCurrentAppointments1" component={DoctorCurrentAppointments1}/>
+        <Route path="/Login" component={Login}/>
+        <Route path="/createAppointment" component={CreateAppointmentAdmin}/>
+        <Route path="/AdminDashboard" component={AdminDashboard1}/>
+        <Route path="/DoctorListForAdmin" component={DoctorListForAdmin1}/>
+        <Route path="/DoctorListForPatient" component={DoctorListForPatient}/>
+        <Route path="/bookAppointment/:id" component={ConfirmAppointment2}/>
+        <Route path="/scheduleAppointment/:id" component={ScheduleAppointment}/>
+
+        
+        <Route path="/availableDoctorsPage" component={AvailableDocPg}/>
+        <Route path="/showCurrentAppointments" component={ShowCurrentAppointments}/>
+        <Route path="/currentActiveAppointments" component={CurrentActiveAppointments}/>
+        <Route path="/Addnewdoctors" component={AddDoctors1}/>
+        <Route path="/UpdateDoctor1page/:id" component={UpdateDoctor1page}/>
+        <Route path="/UpdateDoctor2page" component={UpdateDoctorPage2}/>
+        
+        
+        
+        
+       
+      </Switch>
+      </div>
+     </Router>
     </div>
-     
+    
     
   );
 }

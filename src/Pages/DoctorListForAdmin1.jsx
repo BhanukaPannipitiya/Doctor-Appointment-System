@@ -1,17 +1,16 @@
 import React from 'react'
-import BookAppointment from '../Components/BookAppointment'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
+import DoctorListForAdmin from '../Components/DoctorListForAdmin'
 
-function MakeAppointment() {
+function DoctorListForAdmin1() {
   return (
     <div>
         <Header/>
-        <BookAppointment/>
+        <DoctorListForAdmin/>
         <Footer/>
     </div>
-    
   )
 }
 
-export default MakeAppointment
+export default DoctorListForAdmin1

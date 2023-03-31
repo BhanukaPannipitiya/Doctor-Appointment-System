@@ -1,17 +1,17 @@
 import React from 'react'
-import BookAppointment from '../Components/BookAppointment'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
 
-function MakeAppointment() {
+
+function ScheduleAppointment() {
   return (
     <div>
         <Header/>
-        <BookAppointment/>
+        
         <Footer/>
+
     </div>
-    
   )
 }
 
-export default MakeAppointment
+export default ScheduleAppointment
